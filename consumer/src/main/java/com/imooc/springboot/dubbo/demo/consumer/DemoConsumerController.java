@@ -1,5 +1,6 @@
 package com.imooc.springboot.dubbo.demo.consumer;
 
+
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.imooc.springboot.dubbo.demo.DemoService;
 
@@ -10,6 +11,9 @@ import org.apache.log4j.MDC;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.File;
+
 
 @RestController
 public class DemoConsumerController {
@@ -26,5 +30,13 @@ public class DemoConsumerController {
 
         return demoService.sayHello(name);
     }
+
+    @RequestMapping("/importData")
+    public String importData(@RequestParam String name) {
+        File file = new File("D:\\git\\chengyu\\chinese-xinhua\\data\\idiom.json");
+
+        return null;
+    }
+
 
 }
